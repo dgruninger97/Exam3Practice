@@ -305,24 +305,10 @@ def practice_problem4c(points):
       :rtype: rg.Point | string
     """
     for k in range(len(points)):
-        x = False
-        y = False
-        for j in range(2, points[k].x):
-            if points[k].x % j == 0:
-                x = True
-                break
-            else:
-                x = False
-        for i in range(2, points[k].y):
-            if points[k].y % i == 0:
-               y = True
-               break
-            else:
-                y = False
-        if x and y:
-            return (points[k].x, points[k].y)
-        else:
-            return('Not found')
+        if is_prime(points[k].x) and is_prime(points[k].y):
+            return rg.Point(points[k].y, points[k].x)
+    return('Not found')
+
 
     ####################################################################
     # TODO: 4. Implement and test this function.
