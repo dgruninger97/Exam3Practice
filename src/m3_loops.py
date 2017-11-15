@@ -2,11 +2,11 @@
 PRACTICE Test 3.
 
 This problem provides practice at:
-  ***  FOR and WHILE loops.  ***
+  ***  FOR and WHILE loo_NAME_HERE.ps.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and David Gruninger
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -45,7 +45,7 @@ def main():
 def run_test_practice_problem3():
     """ Tests the   practice_problem3  function. """
     ####################################################################
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem3  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests beyond those we wrote.
     #
@@ -109,6 +109,8 @@ def run_test_practice_problem3():
              st.SimpleTestCase(practice_problem3,
                                [0, 1, 1.414213562373],
                                [286602]),
+             st.SimpleTestCase(practice_problem3,[1, 0, 22], []),
+             st.SimpleTestCase(practice_problem3, [0, 2, -1], [0, 1])
              ]
     # 14th test:
     big_list = []
@@ -207,8 +209,22 @@ def practice_problem3(start, n, threshold):
       :type n:     int
       :type threshold: float
     """
+    returnList = []
+    blankList = []
+    while True:
+        if math.cos(start) + math.sin(start) > threshold:
+            returnList.append(start)
+        if n == 0:
+            return blankList
+        if threshold > math.sqrt(2):
+            for k in range(start, n):
+                returnList.append(start)
+            return returnList
+        if len(returnList) == n:
+            return returnList
+        start += 1
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ####################################################################
