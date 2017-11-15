@@ -70,20 +70,20 @@ def run_test_integers():
                        ])
     print('Expected is:', expected)
     print('Actual is:  ', answer)
-
-    # Test 2:
-    expected = [4, 16, 1, 400, 30, -4, -100, 3000]
-    answer = integers([(4),
-                       (16, 'rose', 'hulman'),
-                       [1, 2.5, 400],
-                       'david',
-                       [],
-                       ['how are you'],
-                       [[55], [44]],
-                       [30, -4, -100, 3000]
-                       ])
-    print('Expected is:', expected)
-    print('Actual is:  ', answer)
+    #
+    # # Test 2:
+    # expected = [4, 16, 1, 400, 30, -4, -100, 3000]
+    # answer = integers([(4),
+    #                    (16, 'rose', 'hulman'),
+    #                    [1, 2.5, 400],
+    #                    'david',
+    #                    [],
+    #                    ['how are you'],
+    #                    [[55], [44]],
+    #                    [30, -4, -100, 3000]
+    #                    ])
+    # print('Expected is:', expected)
+    # print('Actual is:  ', answer)
 
 
 def integers(sequence_of_sequences):
@@ -111,11 +111,10 @@ def integers(sequence_of_sequences):
     returnList = []
     dumbNum = 0
     for j in range(len(sequence_of_sequences)):
-        if len(sequence_of_sequences) == 0:
-            dumbNum += 1
-        if type(sequence_of_sequences[j]) is int:
-            for k in range(sequence_of_sequences[j]):
-                returnList.append((sequence_of_sequences[j][k]))
+        subString = sequence_of_sequences[j]
+        for k in range(len(subString)):
+            if type(subString[k]) is int:
+                returnList.append((subString[k]))
     return returnList
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
