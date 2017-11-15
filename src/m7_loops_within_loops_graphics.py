@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  LOOPS WITHIN LOOPS in 2D GRAPHICS problems.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and David Gruninger.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -29,7 +29,7 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 ########################################################################
 
 import rosegraphics as rg
-
+import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
@@ -88,6 +88,44 @@ def hourglass(window, n, point, radius, color):
     where n and radius are positive and color is a string that denotes
     a color that rosegraphics understands.
     """
+    midCircle = rg.Circle(point, radius)
+    midCircle.fill_color = color
+    midCircle.attach_to(window)
+    startPoint = point.clone()
+    startPoint2 = point.clone()
+    startPoint3 = point.clone()
+    for k in range(n):
+        newCircle = rg.Circle(point, radius)
+        point.x = point.x + radius
+        point.y = point.y + (1.75 * radius)
+        newCircle.fill_color = color
+        linestartpoint = rg.Point(newCircle.center.x + radius, newCircle.center.y)
+        lineendpoint = rg.Point(newCircle.center.x - radius, newCircle.center.y)
+        newLine = rg.Line(linestartpoint, lineendpoint)
+        newLine.attach_to(window)
+        newCircle.attach_to(window)
+        window.render()
+    for k in range(n):
+        newCircle = rg.Circle(startPoint, radius)
+        startPoint.x = startPoint.x - radius
+        startPoint.y = startPoint.y + (1.75 * radius)
+        newCircle.fill_color = color
+        newCircle.attach_to(window)
+        window.render()
+    for k in range(n):
+        newCircle = rg.Circle(startPoint2, radius)
+        startPoint2.x = startPoint2.x - radius
+        startPoint2.y = startPoint2.y - (1.75 * radius)
+        newCircle.fill_color = color
+        newCircle.attach_to(window)
+        window.render()
+    for k in range(n):
+        newCircle = rg.Circle(startPoint3, radius)
+        startPoint3.x = startPoint3.x + radius
+        startPoint3.y = startPoint3.y - (1.75 * radius)
+        newCircle.fill_color = color
+        newCircle.attach_to(window)
+        window.render()
     # ------------------------------------------------------------------
     # TODO: 2. Implement and test this function.
     #       We provided some tests for you (above).
